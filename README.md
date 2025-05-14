@@ -2,35 +2,6 @@
 
 SA-Test-Fix is a Python tool for testing and fixing sentiment analysis models using metamorphic testing and contrastive learning.
 
-## Overview
-
-SA-Test-Fix consists of two main components:
-
-1. **SA-Test**: A testing framework that uses metamorphic testing to detect defects in sentiment analysis models.
-2. **SA-Fix**: A repair framework that uses contrastive learning to fix detected defects.
-
-## Features
-
-- Generate test cases for sentiment analysis models using genetic algorithms
-- Detect defects in sentiment analysis models using metamorphic testing
-- Sort defect cases by their importance for model repair
-- Repair sentiment analysis models using multi-stage contrastive learning
-- Evaluate model performance before and after repair
-
-## Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/SA-Test-Fix.git
-cd SA-Test-Fix
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Download spaCy model
-python -m spacy download en_core_web_sm
-```
-
 ## Usage
 
 ### Configuration
@@ -65,22 +36,6 @@ initial_lambda = 0.1
 final_lambda = 0.9
 rebuild_interval = 1
 batch_size = 16
-```
-
-### Command Line Interface
-
-```bash
-# Test a model
-python -m SA-Test-Fix.main --mode test --model_path path/to/model --dataset_name sst2 --output_dir output
-
-# Fix a model
-python -m SA-Test-Fix.main --mode fix --model_path path/to/model --test_cases_path output/sst2_defect_cases.txt --output_dir output
-
-# Evaluate a model
-python -m SA-Test-Fix.main --mode evaluate --model_path path/to/model --test_cases_path output/sst2_test_cases.txt --output_dir output
-
-# Run the full pipeline (test, fix, evaluate)
-python -m SA-Test-Fix.main --mode all --model_path path/to/model --dataset_name sst2 --output_dir output
 ```
 
 ### Python API
@@ -134,9 +89,3 @@ metrics = evaluator.evaluate_model(test_cases, original_model=model)
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgements
-
-- The SO value calculation is based on the SiSO implementation
-- The mutation operators are inspired by the Checklist framework
-- The model repair approach is based on the sa-fix implementation
